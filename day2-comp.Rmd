@@ -1,0 +1,149 @@
+---
+title: "Making and indexing data in r"
+author: "Allie Cole"
+date: "8/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(palmerpenguins)
+library(tidyverse)
+```
+
+
+## Make some vectors and check them out 
+
+```{r}
+birds <- c("blue", "purple", "green", "cyan")
+
+#Check the class
+class(birds)
+
+# messing around with the class
+
+birds <- c("blue", 55 , "green", TRUE) 
+class(birds) #still all charscters becasue its teh most flexible
+```
+
+```{r}
+bird_num <- c(2, 4, 5, 6, 8, 12)
+class(bird_num)
+typeof(bird_num) # the type of numeric
+
+bird_miles <- c(4L, 5L, 6L) 
+class(bird_miles)
+typeof(bird_miles)
+
+is.character(bird_miles) #this asks a question, can be used as a test to make sure its working correctly
+is.character(bird_num)
+```
+
+# Can give names to things in vectors 
+
+```{r}
+bird_food <- c(blue = "seeds",
+               purple = "fruit",
+               green = "nuts",
+               cyan = "bugs")
+
+bird_food[2] #calls the second thing
+bird_food["purple"] #does the same thing
+```
+
+# Pull a range of elements\
+
+```{r}
+cars <- c("red", "green", "purple", "blue", "orange", "white", "silver", "black", "yellow")
+
+cars[2:5] # refrences a sequence of values 
+
+i <- 3
+
+cars[i] # can call anything using i (or anything), can be a sinlge value or a vector 
+
+# vectors in r are mutable 
+
+cars[3] <- "BIRDS" # now its BIRDS and not purple 
+```
+
+
+## Lists in R
+
+```{r}
+urchins <- list("blue", "purple", 2, FALSE, 22L) #doesnt need to be the same class 
+urchins
+
+urchins[[1]] #actaul vaule in first element 
+urchins[1] #now its a list that shows the first element
+
+
+# messing around 
+
+urchins <- list("blue", 
+                "purple", 
+                c(2, 3, 4, 5), 
+                FALSE, 
+                seq(from = 0, to = 10, by = 1),
+                22L)  
+urchins
+
+urchins[[3]]
+urchins[3]
+```
+
+```{r}
+tacos <- list(topping = c("sourcream", "cheese", "guac"), 
+              filling = c("meat", "beans", "veggies"), 
+              price = c(5.50, 2.50, 8.50))
+tacos
+
+# just price values 
+
+taco_price <- tacos[[3]]
+taco_price
+
+taco_price1 <- tacos$price
+taco_price1
+```
+
+## Data frames! woohoo!
+
+```{r}
+fruit <- data.frame(type = c("orange", "apple", "peach", "plum"), 
+                    mass = c(130, 23, 23, 56))
+fruit
+
+class(fruit)
+class(fruit$type)
+
+fruit$type
+fruit[,1]
+```
+
+## Data wrangling skills 
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
